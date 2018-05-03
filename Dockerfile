@@ -10,5 +10,4 @@ RUN curl -o /bin/embulk -L "https://dl.bintray.com/embulk/maven/embulk-${EMBULK_
 RUN /bin/embulk gem install embulk-output-orc embulk-input-s3 embulk-input-randomj
 RUN mkdir /etc/embulk/
 ADD etc   /etc/embulk/
-ENTRYPOINT "/bin/embulk"
-CMD ["run", "/etc/embulk/config.yml"]
+ENTRYPOINT "/bin/embulk" "run" "/etc/embulk/config.yml"
