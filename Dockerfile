@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV EMBULK_VERSION 0.9.7
+ENV EMBULK_VERSION 0.9.24
 
 RUN apt-get update -y && \
     apt-get install -y curl openjdk-8-jre-headless
