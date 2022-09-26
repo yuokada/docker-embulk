@@ -55,14 +55,20 @@ $ docker image pull ghcr.io/yuokada/docker-embulk:master
 
 ### Run container with your configfile
 
-- save your configfile as **config.yml**
-- Use *-v* or *--mount* Option
-- Override */etc/embulk/* directory like this
+1. save your configfile as **config.yml**
+1. Use *-v* or *--mount* Option
+1. Override */etc/embulk/* directory like this
 
     ```
     % docker run --rm -v /path/to/override:/etc/embulk -it myembulk
     ```
+
     or
+
     ```
     % docker run --rm --mount 'type=bind,src=/path/to/override,dst=/etc/embulk,readonly' -it myembulk
     ```
+
+## Links
+
+- [Embulk](https://www.embulk.org/)
