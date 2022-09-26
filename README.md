@@ -1,5 +1,8 @@
 # docker-embulk
 
+[![Docker Image CI](https://github.com/yuokada/docker-embulk/actions/workflows/docker-image.yml/badge.svg)](https://github.com/yuokada/docker-embulk/actions/workflows/docker-image.yml)
+[![Publish Docker Image](https://github.com/yuokada/docker-embulk/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/yuokada/docker-embulk/actions/workflows/docker-publish.yml)
+
 ## How to use the docker image in this repository
 
 ```
