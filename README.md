@@ -1,5 +1,10 @@
 # docker-embulk
 
+## How to use the docker image in this repository
+
+```
+$ docker image pull ghcr.io/yuokada/docker-embulk:master
+```
 
 ## Build and Run container
 
