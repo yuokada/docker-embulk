@@ -36,7 +36,13 @@ $ docker image pull ghcr.io/yuokada/docker-embulk:master
 
 ### Run
 
+```shell
+$ docker run --rm -it myembulk
+or
+$ docker run --rm -v $(pwd)/etc:/etc/embulk -it myembulk
 ```
+
+```shell
 ~/I/t/y/docker-embulk ❯❯❯ docker run --rm -it myembulk
 2022-09-26 14:41:36.702 +0000: Embulk v0.9.7
 2022-09-26 14:41:37.009 +0000 [WARN] (main): DEPRECATION: JRuby org.jruby.embed.ScriptingContainer is directly injected.
@@ -51,6 +57,25 @@ $ docker image pull ghcr.io/yuokada/docker-embulk:master
 2022-09-26 14:41:38.602 +0000 [INFO] (0001:transaction): {done:  1 / 1, running: 0}
 2022-09-26 14:41:38.605 +0000 [INFO] (main): Committed.
 2022-09-26 14:41:38.605 +0000 [INFO] (main): Next config diff: {"in":{},"out":{}}
+```
+
+or
+
+```shell
+~/I/t/y/docker-embulk ❯❯❯ docker run --rm -v $(pwd)/etc:/etc/embulk -it myembulk
+2023-01-25 11:53:54.822 +0000: Embulk v0.9.24
+2023-01-25 11:53:55.279 +0000 [WARN] (main): DEPRECATION: JRuby org.jruby.embed.ScriptingContainer is directly injected.
+2023-01-25 11:53:56.178 +0000 [INFO] (main): Gem's home and path are set by default: "/root/.embulk/lib/gems"
+2023-01-25 11:53:56.541 +0000 [INFO] (main): Started Embulk v0.9.24
+2023-01-25 11:53:56.594 +0000 [INFO] (0001:transaction): Loaded plugin embulk-input-randomj (0.6.0)
+2023-01-25 11:53:56.608 +0000 [INFO] (0001:transaction): Using local thread executor with max_threads=10 / output tasks 5 = input tasks 1 * 5
+2023-01-25 11:53:56.612 +0000 [INFO] (0001:transaction): {done:  0 / 1, running: 0}
+1,6taIrMVGFArxKqO6BGW61EAB4T300a3M,9Gm4s0l9,false,76.0967946611613,206,2023-03-10 02:34:10,2023/05/12,{"obj1":{"key1":"b2wUrBlg","key2":48.484372817267804}},{"baz":["41C6PmB1"]}
+<-- CUT -->
+8,0PEWIjLKVdjhSIcUJFUFAiYpHW43LGQh,nGyyAUXq,false,86.31797815735047,140,2023-03-05 13:35:11,2023/03/20,{"obj1":{"key1":"fIACvbfK","key2":10.27700439510485}},{"baz":["6RQxUNWu"]}
+2023-01-25 11:53:56.662 +0000 [INFO] (0001:transaction): {done:  1 / 1, running: 0}
+2023-01-25 11:53:56.665 +0000 [INFO] (main): Committed.
+2023-01-25 11:53:56.665 +0000 [INFO] (main): Next config diff: {"in":{},"out":{}}
 ```
 
 ### Run container with your configfile
