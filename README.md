@@ -40,6 +40,8 @@ $ docker image pull ghcr.io/yuokada/docker-embulk:master
 $ docker run --rm -it myembulk
 or
 $ docker run --rm -v $(pwd)/etc:/etc/embulk -it myembulk
+or
+$ docker run --rm -v $(pwd)/etc:/etc/embulk -it n run /etc/embulk/your_config.yml
 ```
 
 ```shell
@@ -78,20 +80,40 @@ or
 2023-01-25 11:53:56.665 +0000 [INFO] (main): Next config diff: {"in":{},"out":{}}
 ```
 
-### Run container with your configfile
+or
 
-1. save your configfile as **config.yml**
+```shell
+docker run --rm -v $(pwd)/etc:/etc/embulk -it n run /etc/embulk/small.yml
+2023-01-27 16:44:29.870 +0000: Embulk v0.9.24
+2023-01-27 16:44:30.839 +0000 [WARN] (main): DEPRECATION: JRuby org.jruby.embed.ScriptingContainer is directly injected.
+2023-01-27 16:44:34.147 +0000 [INFO] (main): Gem's home and path are set by default: "/root/.embulk/lib/gems"
+2023-01-27 16:44:35.405 +0000 [INFO] (main): Started Embulk v0.9.24
+2023-01-27 16:44:35.589 +0000 [INFO] (0001:transaction): Loaded plugin embulk-input-randomj (0.6.0)
+2023-01-27 16:44:35.667 +0000 [INFO] (0001:transaction): Using local thread executor with max_threads=4 / output tasks 2 = input tasks 1 * 2
+2023-01-27 16:44:35.689 +0000 [INFO] (0001:transaction): {done:  0 / 1, running: 0}
+1,Tqix8mbPQZ3DlzBnhRiI0ea0kqdltCrS,rRdQzjqN,true,85.71374240006554,241,2023-03-17 20:20:46,2023/04/02,{"obj1":{"key1":"gyXWMOhN","key2":86.88455174717735}},{"baz":["mYO5MHYE"]}
+2,W3pdiak06T7kslrGynKrtxyEvZ8ISgqp,GOcTycRg,false,86.40274240297576,205,2023-05-07 02:03:16,2023/02/17,{"obj1":{"key1":"PyWuqeLf","key2":22.03319777547418}},{"baz":["gLclHiOR"]}
+3,BPFBUN0BFs6vdXq8iThGkbKZtx9Ca7ym,1vqkGIYU,true,-69.63748766800433,112,2023-04-12 11:42:40,2023/03/06,{"obj1":{"key1":"sAf5wf8s","key2":65.40496317606464}},{"baz":["Qs5l1QOn"]}
+4,R1xNQTzRbDChz6xqIUGLeIkwlSq1om5G,1p2foyBB,false,58.90254942101971,163,2023-02-21 08:23:04,2023/05/10,{"obj1":{"key1":"v0b7tjq2","key2":35.315483903574574}},{"baz":["mqcXVzTH"]}
+2023-01-27 16:44:35.843 +0000 [INFO] (0001:transaction): {done:  1 / 1, running: 0}
+2023-01-27 16:44:35.850 +0000 [INFO] (main): Committed.
+2023-01-27 16:44:35.852 +0000 [INFO] (main): Next config diff: {"in":{},"out":{}}
+```
+
+### Run container with your configuration file
+
+1. Create your configfile in your directory
 1. Use *-v* or *--mount* Option
 1. Override */etc/embulk/* directory like this
 
     ```
-    % docker run --rm -v /path/to/override:/etc/embulk -it myembulk
+    % docker run --rm -v /path/to/override:/etc/embulk -it myembulk run /etc/embulk/your_config.yaml
     ```
 
     or
 
     ```
-    % docker run --rm --mount 'type=bind,src=/path/to/override,dst=/etc/embulk,readonly' -it myembulk
+    % docker run --rm --mount 'type=bind,src=/path/to/override,dst=/etc/embulk,readonly' -it myembulk  run /etc/embulk/your_config.yaml
     ```
 
 ## Links
