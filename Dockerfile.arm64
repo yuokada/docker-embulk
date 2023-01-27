@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM arm64v8/openjdk:8
 
 ENV EMBULK_VERSION 0.9.24
 
