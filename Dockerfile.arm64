@@ -1,4 +1,4 @@
-FROM arm64v8/openjdk:8
+FROM arm64v8/openjdk:17
 
 ENV EMBULK_VERSION 0.9.24
 
